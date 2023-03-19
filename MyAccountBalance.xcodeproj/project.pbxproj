@@ -16,6 +16,10 @@
 		85BA31C629C6EB6E001F87FC /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C529C6EB6E001F87FC /* MainVM.swift */; };
 		85BA32B729C6FCA2001F87FC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B629C6FCA2001F87FC /* Color.swift */; };
 		85BA32B929C70D7F001F87FC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B829C70D7F001F87FC /* View.swift */; };
+		85BA32BC29C71CA9001F87FC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BB29C71CA9001F87FC /* APIManager.swift */; };
+		85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BD29C71E94001F87FC /* APIInfo.swift */; };
+		85BA32C029C73986001F87FC /* APIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BF29C73986001F87FC /* APIRepository.swift */; };
+		85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32C229C751E7001F87FC /* APIResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		85BA31C529C6EB6E001F87FC /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		85BA32B629C6FCA2001F87FC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		85BA32B829C70D7F001F87FC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		85BA32BB29C71CA9001F87FC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		85BA32BD29C71E94001F87FC /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
+		85BA32BF29C73986001F87FC /* APIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepository.swift; sourceTree = "<group>"; };
+		85BA32C229C751E7001F87FC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,41 +70,18 @@
 		7133B37029C6B7E900612010 /* MyAccountBalance */ = {
 			isa = PBXGroup;
 			children = (
-				85BA32B529C6FC96001F87FC /* Extension */,
-				85BA31C029C6E7E1001F87FC /* Views */,
 				7133B37129C6B7E900612010 /* AppDelegate.swift */,
 				7133B37329C6B7E900612010 /* SceneDelegate.swift */,
 				85BA31C329C6E9B6001F87FC /* MainVC.swift */,
 				85BA31C529C6EB6E001F87FC /* MainVM.swift */,
 				7133B37729C6B7E900612010 /* Main.storyboard */,
 				7133B37A29C6B7EC00612010 /* Assets.xcassets */,
+				85BA32BA29C71C73001F87FC /* Model */,
+				85BA32B529C6FC96001F87FC /* Extension */,
 				7133B37C29C6B7EC00612010 /* LaunchScreen.storyboard */,
 				7133B37F29C6B7EC00612010 /* Info.plist */,
 			);
 			path = MyAccountBalance;
-			sourceTree = "<group>";
-		};
-		85BA31C029C6E7E1001F87FC /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				85BA31C129C6E7F6001F87FC /* AccountBalance */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		85BA31C129C6E7F6001F87FC /* AccountBalance */ = {
-			isa = PBXGroup;
-			children = (
-				85BA31C229C6E808001F87FC /* ViewModel */,
-			);
-			path = AccountBalance;
-			sourceTree = "<group>";
-		};
-		85BA31C229C6E808001F87FC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		85BA32B529C6FC96001F87FC /* Extension */ = {
@@ -106,6 +91,33 @@
 				85BA32B829C70D7F001F87FC /* View.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		85BA32BA29C71C73001F87FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85BA32C429C75228001F87FC /* Repository */,
+				85BA32C129C751D2001F87FC /* Response */,
+				85BA32BB29C71CA9001F87FC /* APIManager.swift */,
+				85BA32BD29C71E94001F87FC /* APIInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85BA32C129C751D2001F87FC /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				85BA32C229C751E7001F87FC /* APIResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		85BA32C429C75228001F87FC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				85BA32BF29C73986001F87FC /* APIRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +194,13 @@
 				85BA31C429C6E9B6001F87FC /* MainVC.swift in Sources */,
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
 				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
+				85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */,
 				7133B37429C6B7E900612010 /* SceneDelegate.swift in Sources */,
 				85BA32B729C6FCA2001F87FC /* Color.swift in Sources */,
 				85BA31C629C6EB6E001F87FC /* MainVM.swift in Sources */,
+				85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */,
+				85BA32BC29C71CA9001F87FC /* APIManager.swift in Sources */,
+				85BA32C029C73986001F87FC /* APIRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

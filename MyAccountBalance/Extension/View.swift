@@ -9,29 +9,22 @@ import UIKit
 
 extension UIView {
     func startCustomAnitmation() {
-        var gradientSet = [[CGColor]]()
         let gradientLayer = CAGradientLayer()
-        let gradientChangeAnimation = CABasicAnimation(keyPath: "colors")
-        
-        let colorOne = UIColor.rgbaColor(r: 240, g: 240, b: 240).cgColor
-        let colorTwo = UIColor.rgbaColor(r: 251, g: 251, b: 251).cgColor
-        gradientSet = [
-            [colorOne, colorTwo],
-            [colorTwo, colorOne],
-        ]
-        
         gradientLayer.frame = self.bounds
-        gradientLayer.colors = [colorOne, colorTwo]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
-        gradientChangeAnimation.duration = 0.5
-        gradientChangeAnimation.fromValue = gradientSet[0]
-        gradientChangeAnimation.toValue = gradientSet[1]
-        gradientChangeAnimation.repeatCount = .greatestFiniteMagnitude
-        gradientLayer.add(gradientChangeAnimation, forKey: "colorChange")
-        
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        gradientLayer.colors = [UIColor.rgbaColor(r: 240, g: 240, b: 240).cgColor, UIColor.rgbaColor(r: 251, g: 251, b: 251).cgColor, UIColor.rgbaColor(r: 240, g: 240, b: 240).cgColor]
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+
         self.isHidden = false
         self.layer.addSublayer(gradientLayer)
+        
+        let gradientChangeAnimation = CABasicAnimation(keyPath: "locations")
+        gradientChangeAnimation.fromValue = [-1.0, -0.5, 0.0]
+        gradientChangeAnimation.toValue = [1.0, 1.5, 2.0]
+        gradientChangeAnimation.repeatCount = .infinity
+        gradientChangeAnimation.duration = 0.9
+        gradientLayer.add(gradientChangeAnimation, forKey: "colorChange")
     }
     
     func stopCustomAnitmation(){

@@ -15,6 +15,7 @@
 		85BA31C429C6E9B6001F87FC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C329C6E9B6001F87FC /* MainVC.swift */; };
 		85BA31C629C6EB6E001F87FC /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C529C6EB6E001F87FC /* MainVM.swift */; };
 		85BA32B729C6FCA2001F87FC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B629C6FCA2001F87FC /* Color.swift */; };
+		85BA32B929C70D7F001F87FC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B829C70D7F001F87FC /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		85BA31C329C6E9B6001F87FC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		85BA31C529C6EB6E001F87FC /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		85BA32B629C6FCA2001F87FC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		85BA32B829C70D7F001F87FC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				85BA32B629C6FCA2001F87FC /* Color.swift */,
+				85BA32B829C70D7F001F87FC /* View.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				85BA31C429C6E9B6001F87FC /* MainVC.swift in Sources */,
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
+				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
 				7133B37429C6B7E900612010 /* SceneDelegate.swift in Sources */,
 				85BA32B729C6FCA2001F87FC /* Color.swift in Sources */,
 				85BA31C629C6EB6E001F87FC /* MainVM.swift in Sources */,

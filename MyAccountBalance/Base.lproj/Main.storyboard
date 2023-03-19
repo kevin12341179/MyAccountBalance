@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,20 +32,20 @@
                                                             <constraint firstAttribute="width" constant="40" id="wI9-VR-Uny"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69O-Kf-U3h">
-                                                        <rect key="frame" x="342" y="12" width="48" height="24"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69O-Kf-U3h">
+                                                        <rect key="frame" x="366" y="12" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="SFt-Jf-W7s"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="yn3-hA-JZS"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="iconBell01Nomal"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="iconBell01Nomal"/>
                                                         <connections>
                                                             <action selector="messageButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Am-wK-eAd"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="gx7-b7-s0m" firstAttribute="leading" secondItem="jfw-Et-PRR" secondAttribute="leading" constant="24" id="27g-cW-Cji"/>
                                                     <constraint firstAttribute="height" constant="48" id="7Ti-Zc-OEV"/>
@@ -68,20 +67,20 @@
                                                                 <color key="textColor" red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKQ-By-J5g">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BKQ-By-J5g">
                                                                 <rect key="frame" x="187.5" y="12" width="24" height="24"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="BKQ-By-J5g" secondAttribute="height" multiplier="1:1" id="Oh9-t4-IH2"/>
                                                                     <constraint firstAttribute="height" constant="24" id="Z2H-qL-Ryc"/>
                                                                 </constraints>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="plain" image="iconEye01On"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                <state key="normal" title="Button" image="iconEye01On"/>
                                                                 <connections>
                                                                     <action selector="eyesButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1yQ-Ft-O6c"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="l3L-Wk-yuL" firstAttribute="centerY" secondItem="gKu-rV-57J" secondAttribute="centerY" id="EqS-hB-ZJc"/>
                                                             <constraint firstItem="BKQ-By-J5g" firstAttribute="leading" secondItem="l3L-Wk-yuL" secondAttribute="trailing" constant="8" id="oLT-hT-hPr"/>
@@ -100,21 +99,21 @@
                                                                     <constraint firstAttribute="height" constant="24" id="wIH-n8-zhw"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="qPr-Ru-KWu">
                                                                 <rect key="frame" x="24" y="28" width="16" height="32"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEU-iC-Sln">
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OEU-iC-Sln">
                                                                 <rect key="frame" x="24" y="28" width="279" height="32"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="OEU-iC-Sln" secondAttribute="trailing" constant="111" id="CGK-dK-CRg"/>
                                                             <constraint firstAttribute="height" constant="64" id="DrA-Ct-7P9"/>
@@ -139,21 +138,21 @@
                                                                     <constraint firstAttribute="height" constant="24" id="tEK-Gt-8lq"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="jfv-hf-PXt">
                                                                 <rect key="frame" x="24" y="28" width="16" height="32"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                                                <nil key="textColor"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEZ-JJ-ASM">
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEZ-JJ-ASM">
                                                                 <rect key="frame" x="24" y="28" width="366" height="32"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="bottom" secondItem="YEZ-JJ-ASM" secondAttribute="bottom" constant="4" id="0EU-gd-Krh"/>
                                                             <constraint firstItem="8RX-tD-etW" firstAttribute="leading" secondItem="eLz-ZB-Siw" secondAttribute="leading" constant="24" id="2XE-7q-8P6"/>
@@ -170,7 +169,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="gKu-rV-57J" firstAttribute="top" secondItem="21B-VD-skv" secondAttribute="top" id="1kl-dY-QvK"/>
                                                     <constraint firstItem="gKu-rV-57J" firstAttribute="leading" secondItem="21B-VD-skv" secondAttribute="leading" id="3bg-1a-RVs"/>
@@ -188,6 +187,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5l6-lS-aP1" firstAttribute="top" secondItem="zuB-YJ-Trr" secondAttribute="top" id="3TM-Ti-Oxn"/>
                                     <constraint firstItem="5l6-lS-aP1" firstAttribute="leading" secondItem="zuB-YJ-Trr" secondAttribute="leading" id="Djz-xu-VDh"/>
@@ -198,7 +198,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zuB-YJ-Trr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1bK-gQ-BwX"/>
                             <constraint firstAttribute="bottom" secondItem="zuB-YJ-Trr" secondAttribute="bottom" id="Wqz-pY-cA1"/>
@@ -225,8 +225,5 @@
         <image name="avatar" width="42" height="42"/>
         <image name="iconBell01Nomal" width="24" height="25"/>
         <image name="iconEye01On" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

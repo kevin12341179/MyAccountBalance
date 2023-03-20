@@ -15,7 +15,7 @@
 		7133B47829C7F78100612010 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B47729C7F78100612010 /* MainVC.swift */; };
 		7133B47A29C7F79100612010 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B47929C7F79100612010 /* MainVM.swift */; };
 		7133B47C29C7F97C00612010 /* Home.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133B47B29C7F97C00612010 /* Home.xib */; };
-		85BA31C429C6E9B6001F87FC /* HomeViC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C329C6E9B6001F87FC /* HomeViC.swift */; };
+		71AE400D29C809FB00879D9C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE400C29C809FB00879D9C /* HomeVC.swift */; };
 		85BA31C629C6EB6E001F87FC /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C529C6EB6E001F87FC /* HomeVM.swift */; };
 		85BA32B729C6FCA2001F87FC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B629C6FCA2001F87FC /* Color.swift */; };
 		85BA32B929C70D7F001F87FC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B829C70D7F001F87FC /* View.swift */; };
@@ -36,7 +36,7 @@
 		7133B47729C7F78100612010 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		7133B47929C7F79100612010 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		7133B47B29C7F97C00612010 /* Home.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home.xib; sourceTree = "<group>"; };
-		85BA31C329C6E9B6001F87FC /* HomeViC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViC.swift; sourceTree = "<group>"; };
+		71AE400C29C809FB00879D9C /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		85BA31C529C6EB6E001F87FC /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		85BA32B629C6FCA2001F87FC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		85BA32B829C70D7F001F87FC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		7133B47429C7F62C00612010 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				85BA31C329C6E9B6001F87FC /* HomeViC.swift */,
+				71AE400C29C809FB00879D9C /* HomeVC.swift */,
 				85BA31C529C6EB6E001F87FC /* HomeVM.swift */,
 				7133B47B29C7F97C00612010 /* Home.xib */,
 			);
@@ -217,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85BA31C429C6E9B6001F87FC /* HomeViC.swift in Sources */,
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
 				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
 				85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */,
@@ -227,6 +226,7 @@
 				7133B47A29C7F79100612010 /* MainVM.swift in Sources */,
 				85BA31C629C6EB6E001F87FC /* HomeVM.swift in Sources */,
 				85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */,
+				71AE400D29C809FB00879D9C /* HomeVC.swift in Sources */,
 				85BA32BC29C71CA9001F87FC /* APIManager.swift in Sources */,
 				85BA32C029C73986001F87FC /* APIRepository.swift in Sources */,
 			);

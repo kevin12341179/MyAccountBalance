@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class HomeVC: UIViewController {
-    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: "Home", bundle: Bundle.main)
     }
     

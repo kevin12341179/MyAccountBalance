@@ -15,6 +15,7 @@ protocol MainVMInterFace {
 }
 
 class MainVM: MainVMInterFace {
+    
     @Published var messagesList: [Notification] = []
     var messagesListPublisher: Published<[Notification]>.Publisher { $messagesList }
 

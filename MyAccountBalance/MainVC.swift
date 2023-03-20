@@ -2,74 +2,54 @@
 //  MainVC.swift
 //  MyAccountBalance
 //
-//  Created by YU TSEN LIN on 2023/3/19.
+//  Created by Kevin_Hsu on 2023/3/20.
 //
 
 import UIKit
-import Combine
+
+enum PageType {
+    case Home
+}
 
 class MainVC: UIViewController {
-    // Main
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    // Account Balance
-    @IBOutlet weak var messageButton: UIButton!
-    @IBOutlet weak var eyesButton: UIButton!
-    @IBOutlet weak var usdLabel: UILabel!
-    @IBOutlet weak var khrLabel: UILabel!
-    @IBOutlet weak var usdAnitmationView: UIView!
-    @IBOutlet weak var khrAnitmationView: UIView!
-    
-    // Base
-    var viewModel: MainVMInterFace = MainVM()
-    var cancellable = Set<AnyCancellable>()
-    
-    // Pull Refresh
-    var refreshControl: UIRefreshControl = UIRefreshControl()
-    
-    //Data
-    var messagesList: [Notification] = []
-    
-    
+    @IBOutlet weak var contentView: UIView!
+    // Page Controller
+    private var selectMode: PageType!
+    private var subVC: UIViewController?
+    private var homeVC : HomeVC?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.isNavigationBarHidden = true
-        scrollView.bounces = true
-        scrollView.refreshControl = refreshControl
-        scrollView.refreshControl?.addTarget(self, action:
-                                                #selector(onRefresh),
-                                             for: .valueChanged)
+        
+        setCurrentView(model: PageType.Home)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        bindViewModel()
-        viewModel.getEmptyNotificationList()
-    }
-    
-    func bindViewModel(){
-        viewModel.messagesListPublisher
-            .receive(on: DispatchQueue.main)
-            .sink {[weak self] messagesList in
-                self?.messagesList = messagesList
-                if messagesList.count > 0 {
-                    self?.messageButton.setImage(UIImage(named: "iconBell02Active"), for: .normal)
-                }
-                self?.refreshControl.endRefreshing()
+    func setCurrentView(model: PageType){
+        if selectMode == model { return }
+        selectMode = model
+        
+        if self.subVC != nil {
+            self.subVC?.view.removeFromSuperview()
+            self.subVC?.removeFromParent()
+            self.subVC = nil
+        }
+        
+        switch self.selectMode {
+        case .Home:
+            if self.homeVC == nil {
+                self.homeVC = HomeVC()
             }
-            .store(in: &cancellable)
-    }
-    
-    @objc func onRefresh() {
-        viewModel.getNotificationList()
-        usdAnitmationView.startCustomAnitmation()
-        khrAnitmationView.startCustomAnitmation()
-    }
-    
-    @IBAction func messageButtonClick(_ sender: Any) {
-    }
-    
-    @IBAction func eyesButtonClick(_ sender: Any) {
+            self.subVC = self.homeVC
+        default:
+            break
+        }
+        
+        if self.subVC != nil {
+            self.subVC?.view.frame = self.contentView.bounds
+            self.addChild(self.subVC!)
+            self.contentView.addSubview(self.subVC!.view)
+            self.subVC?.didMove(toParent: self)
+        }
     }
 }

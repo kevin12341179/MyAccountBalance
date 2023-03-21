@@ -31,9 +31,9 @@ class ShowMessageView :UIView{
         }
         self.messageLabel.text = message
         
-        UIApplication.shared.keyWindow?.addSubview(self)
-        self.frame = UIApplication.shared.keyWindow?.frame ?? CGRect.zero
-        self.center = UIApplication.shared.keyWindow?.center ?? CGPoint.zero
+        UIApplication.shared.windows.first {$0.isKeyWindow}?.addSubview(self)
+        self.frame = UIApplication.shared.windows.first {$0.isKeyWindow}?.frame ?? CGRect.zero
+        self.center = UIApplication.shared.windows.first {$0.isKeyWindow}?.center ?? CGPoint.zero
         
         UIView.animate(withDuration: 0.31, animations: {
             self.bgView.alpha = 1

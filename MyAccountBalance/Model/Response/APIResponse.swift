@@ -14,7 +14,7 @@ struct APIResponse<T:Codable>: Codable{
 }
 
 struct Message: Codable{
-    var messages:[Notification]
+    var messages:[Notification]?
 }
 
 struct Notification: Codable{

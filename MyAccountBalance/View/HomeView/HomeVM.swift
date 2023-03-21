@@ -45,7 +45,7 @@ class HomeVM: HomeVMInterFace {
                 }
             }, receiveValue: { [weak self] data in
                 guard let `self` = self else {return}
-                self._messagesList = data.messages
+                self._messagesList = data.messages ?? []
             })
             .store(in: &cancellable)
     }
@@ -63,7 +63,7 @@ class HomeVM: HomeVMInterFace {
                 }
             }, receiveValue: { [weak self] data in
                 guard let `self` = self else {return}
-                self._messagesList = data.messages
+                self._messagesList = data.messages ?? []
             })
             .store(in: &cancellable)
     }

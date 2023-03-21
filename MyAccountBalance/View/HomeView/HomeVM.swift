@@ -16,8 +16,8 @@ protocol HomeVMInterFace {
 
 class HomeVM: HomeVMInterFace {
     
-    @Published var messagesList: [Notification] = []
-    var messagesListPublisher: Published<[Notification]>.Publisher { $messagesList }
+    @Published private var _messagesList: [Notification] = []
+    var messagesListPublisher: Published<[Notification]>.Publisher { $_messagesList }
 
     var errorMessage = ""
     private let apiRepository: APIRepositoryInterFace
@@ -32,11 +32,11 @@ class HomeVM: HomeVMInterFace {
             .sink { completion in
                 if case .failure(let error) = completion {
                     self.errorMessage = error.localizedDescription
-                    self.messagesList = []
+                    self._messagesList = []
                 }
             } receiveValue: {[weak self] data in
                 guard let `self` = self else {return}
-                self.messagesList = data.messages
+                self._messagesList = data.messages
             }
             .store(in: &cancellable)
     }
@@ -49,7 +49,7 @@ class HomeVM: HomeVMInterFace {
                 }
             } receiveValue: {[weak self] data in
                 guard let `self` = self else {return}
-                self.messagesList = data.messages
+                self._messagesList = data.messages
             }
             .store(in: &cancellable)
     }

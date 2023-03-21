@@ -7,7 +7,14 @@
 
 struct APIInfo {
     static let domain : String = "https://willywu0201.github.io/data/"
-    // API
+    // Notification
     static let getEmptyNotificationList = domain + "emptyNotificationList.json"
     static let getNotificationList = domain + "notificationList.json"
+    // Amount
+    static let getFirstUSDSaving = domain + "usdSavings1.json"
+    static let getFirstUSDFixed = domain + "usdFixed1.json"
+    static let getFirstUSDDigital = domain + "usdDigital1.json"
+    static let getFirstKHRSaving = domain + "khrSavings1.json"
+    static let getFirstKHRFixed = domain + "khrFixed1.json"
+    static let getFirstKHRDigital = domain + "khrDigital1.json"
 }

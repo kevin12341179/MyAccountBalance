@@ -150,10 +150,18 @@
 		8515A93129C9F4B90016E21B /* More */ = {
 			isa = PBXGroup;
 			children = (
+				8515A93629C9FF500016E21B /* FavoriteCell */,
 				8515A93229C9F5850016E21B /* MoreView.swift */,
 				8515A93429C9F5920016E21B /* MoreView.xib */,
 			);
 			path = More;
+			sourceTree = "<group>";
+		};
+		8515A93629C9FF500016E21B /* FavoriteCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FavoriteCell;
 			sourceTree = "<group>";
 		};
 		85484C1129C9D33D00FCE12B /* FunctionCollectionView */ = {

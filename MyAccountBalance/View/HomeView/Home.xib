@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,10 +27,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdt-kI-mvG">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-LK-Oq6">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="224"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RK8-za-PCd" userLabel="TopView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -193,6 +194,27 @@
                                         <constraint firstItem="YB5-Ao-d8b" firstAttribute="top" secondItem="zkA-f7-tp0" secondAttribute="bottom" id="hbc-Da-hK3"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgW-6B-h8X" customClass="FunctionCollectionView" customModule="MyAccountBalance" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="224" width="414" height="192"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="192" id="0Lc-cc-jwd"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLb-jo-v3x">
+                                    <rect key="frame" x="0.0" y="416" width="414" height="8"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="8" id="Uqw-HX-oII"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb6-7J-oGN">
+                                    <rect key="frame" x="0.0" y="424" width="414" height="136"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="136" id="c32-B1-Vt7"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
@@ -221,5 +243,8 @@
         <image name="avatar" width="42" height="42"/>
         <image name="iconBell01Nomal" width="24" height="25"/>
         <image name="iconEye01On" width="24" height="24"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -56,6 +56,15 @@ class HomeVC: UIViewController {
     }
     
     func bindViewModel(){
+        viewModel.errorMessageListPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { errorMessage in
+                ShowMessageView.shared.showMessage(errorMessage, completionHandler: { _ in
+                    // do error things
+                })
+            }
+            .store(in: &cancellable)
+        
         viewModel.messagesListPublisher
             .receive(on: DispatchQueue.main)
             .sink {[weak self] messagesList in

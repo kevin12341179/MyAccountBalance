@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712847E329C988BB000B73C7 /* ShowMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712847E229C988BB000B73C7 /* ShowMessageView.xib */; };
 		7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B37129C6B7E900612010 /* AppDelegate.swift */; };
 		7133B37429C6B7E900612010 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B37329C6B7E900612010 /* SceneDelegate.swift */; };
 		7133B37B29C6B7EC00612010 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7133B37A29C6B7EC00612010 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 		7133B47829C7F78100612010 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B47729C7F78100612010 /* MainVC.swift */; };
 		7133B47A29C7F79100612010 /* MainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7133B47929C7F79100612010 /* MainVM.swift */; };
 		7133B47C29C7F97C00612010 /* Home.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7133B47B29C7F97C00612010 /* Home.xib */; };
+		719B2C7029C986730022CAE5 /* ShowMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719B2C6F29C986730022CAE5 /* ShowMessageView.swift */; };
 		71AE400D29C809FB00879D9C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AE400C29C809FB00879D9C /* HomeVC.swift */; };
 		85BA31C629C6EB6E001F87FC /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA31C529C6EB6E001F87FC /* HomeVM.swift */; };
 		85BA32B729C6FCA2001F87FC /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B629C6FCA2001F87FC /* Color.swift */; };
@@ -26,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712847E229C988BB000B73C7 /* ShowMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowMessageView.xib; sourceTree = "<group>"; };
 		7133B36E29C6B7E900612010 /* MyAccountBalance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAccountBalance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7133B37129C6B7E900612010 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7133B37329C6B7E900612010 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 		7133B47729C7F78100612010 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		7133B47929C7F79100612010 /* MainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVM.swift; sourceTree = "<group>"; };
 		7133B47B29C7F97C00612010 /* Home.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Home.xib; sourceTree = "<group>"; };
+		719B2C6F29C986730022CAE5 /* ShowMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMessageView.swift; sourceTree = "<group>"; };
 		71AE400C29C809FB00879D9C /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		85BA31C529C6EB6E001F87FC /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		85BA32B629C6FCA2001F87FC /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 		7133B47329C7F61F00612010 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				719B2C6E29C986510022CAE5 /* Component */,
 				7133B47429C7F62C00612010 /* HomeView */,
 			);
 			path = View;
@@ -107,6 +112,23 @@
 				7133B47B29C7F97C00612010 /* Home.xib */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		719B2C6E29C986510022CAE5 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				719B2C7129C986A00022CAE5 /* ShowMessageView */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		719B2C7129C986A00022CAE5 /* ShowMessageView */ = {
+			isa = PBXGroup;
+			children = (
+				719B2C6F29C986730022CAE5 /* ShowMessageView.swift */,
+				712847E229C988BB000B73C7 /* ShowMessageView.xib */,
+			);
+			path = ShowMessageView;
 			sourceTree = "<group>";
 		};
 		85BA32B529C6FC96001F87FC /* Extension */ = {
@@ -205,6 +227,7 @@
 			files = (
 				7133B47C29C7F97C00612010 /* Home.xib in Resources */,
 				7133B37E29C6B7EC00612010 /* LaunchScreen.storyboard in Resources */,
+				712847E329C988BB000B73C7 /* ShowMessageView.xib in Resources */,
 				7133B37B29C6B7EC00612010 /* Assets.xcassets in Resources */,
 				7133B47629C7F75A00612010 /* Main.storyboard in Resources */,
 			);
@@ -220,6 +243,7 @@
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
 				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
 				85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */,
+				719B2C7029C986730022CAE5 /* ShowMessageView.swift in Sources */,
 				7133B47829C7F78100612010 /* MainVC.swift in Sources */,
 				7133B37429C6B7E900612010 /* SceneDelegate.swift in Sources */,
 				85BA32B729C6FCA2001F87FC /* Color.swift in Sources */,

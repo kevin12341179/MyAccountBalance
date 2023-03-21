@@ -34,7 +34,7 @@ struct FunctionCollectionData {
             FunctionCollectionData(image: UIImage(named: "button00ElementMenuTransfer") ?? UIImage(), title: "Transfer"),
             FunctionCollectionData(image: UIImage(named: "button00ElementMenuPayment") ?? UIImage(), title: "Payment"),
             FunctionCollectionData(image: UIImage(named: "button00ElementMenuUtility") ?? UIImage(), title: "Utility"),
-            FunctionCollectionData(image: UIImage(named: "button01Scan") ?? UIImage(), title: "QR pay sscan"),
+            FunctionCollectionData(image: UIImage(named: "button01Scan") ?? UIImage(), title: "QR pay scan"),
             FunctionCollectionData(image: UIImage(named: "button00ElementMenuQRcode") ?? UIImage(), title: "My QR code"),
             FunctionCollectionData(image: UIImage(named: "button00ElementMenuTopUp") ?? UIImage(), title: "Top up")
         ]

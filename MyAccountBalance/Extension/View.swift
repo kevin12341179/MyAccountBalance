@@ -26,9 +26,4 @@ extension UIView {
         gradientChangeAnimation.duration = 0.9
         gradientLayer.add(gradientChangeAnimation, forKey: "colorChange")
     }
-    
-    func stopCustomAnitmation(){
-        self.isHidden = true
-        self.layer.removeAnimation(forKey: "colorChange")
-    }
 }

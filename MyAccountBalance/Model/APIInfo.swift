@@ -17,6 +17,13 @@ struct APIInfo {
     static let getFirstKHRSaving = domain + "khrSavings1.json"
     static let getFirstKHRFixed = domain + "khrFixed1.json"
     static let getFirstKHRDigital = domain + "khrDigital1.json"
+    
+    static let getPullUSDSaving = domain + "usdSavings2.json"
+    static let getPullUSDFixed = domain + "usdFixed2.json"
+    static let getPullUSDDigital = domain + "usdDigital2.json"
+    static let getPullKHRSaving = domain + "khrSavings2.json"
+    static let getPullKHRFixed = domain + "khrFixed2.json"
+    static let getPullKHRDigital = domain + "khrDigital2.json"
     //Favorite
     static let getEmptyFavoriteList = domain + "emptyFavoriteList.json"
     static let getFavoriteList = domain + "favoriteList.json"

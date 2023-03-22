@@ -87,7 +87,7 @@
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                     <state key="normal" title="Button" image="iconEye01On"/>
                                                     <connections>
-                                                        <action selector="eyesButtonClick:" destination="-1" eventType="touchUpInside" id="tdw-CN-dXf"/>
+                                                        <action selector="eyesButtonClick:" destination="-1" eventType="touchUpInside" id="1Z6-m6-2M2"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

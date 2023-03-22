@@ -38,6 +38,7 @@ import UIKit
     
     func setFavorite(data: [Favorite]){
         collectionData = data
+        collectionView.isScrollEnabled = collectionData.count > 4
         
         if collectionData.isEmpty {
             self.noDataView.isHidden = false

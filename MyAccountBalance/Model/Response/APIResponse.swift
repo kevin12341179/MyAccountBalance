@@ -42,4 +42,14 @@ struct Amount: Codable{
     var balance: Double
 }
 
+struct FavoriteList: Codable{
+    var favoriteList: [Favorite]?
+}
+
+struct Favorite: Codable{
+    var nickname: String
+    var transType: String
+}
+
+
 

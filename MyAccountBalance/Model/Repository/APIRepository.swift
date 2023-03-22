@@ -9,14 +9,19 @@ import Foundation
 import Combine
 
 protocol APIRepositoryInterFace {
+    // Notification
     func getEmptyNotificationList() -> AnyPublisher<Message, Error>
     func getNotificationList() -> AnyPublisher<Message, Error>
+    // Amount
     func getFirstUSDSaving() -> AnyPublisher<SavingsList, Error>
     func getFirstUSDFixed() -> AnyPublisher<FixedDepositList, Error>
     func getFirstUSDDigital() -> AnyPublisher<DigitalList, Error>
     func getFirstKHRSaving() -> AnyPublisher<SavingsList, Error>
     func getFirstKHRFixed() -> AnyPublisher<FixedDepositList, Error>
     func getFirstKHRDigital() -> AnyPublisher<DigitalList, Error>
+    //Favorite
+    func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error>
+    func getFavoriteList() -> AnyPublisher<FavoriteList, Error>
 }
 
 class APIRepository: APIRepositoryInterFace{
@@ -52,5 +57,13 @@ class APIRepository: APIRepositoryInterFace{
     
     func getFirstKHRDigital() -> AnyPublisher<DigitalList, Error> {
         return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstKHRDigital)
+    }
+
+    func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error> {
+        return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyFavoriteList)
+    }
+    
+    func getFavoriteList() -> AnyPublisher<FavoriteList, Error> {
+        return APIManager.shared.requestAPI(urlstring: APIInfo.getFavoriteList)
     }
 }

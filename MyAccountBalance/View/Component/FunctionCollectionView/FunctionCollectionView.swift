@@ -8,7 +8,7 @@
 import UIKit
 
 struct FunctionCollectionData {
-    var image: UIImage
+    var image: UIImage?
     var title: String
 }
 
@@ -31,12 +31,12 @@ struct FunctionCollectionData {
                                             "FunctionCollectionViewCell", bundle:nil),
                                      forCellWithReuseIdentifier: "cell")
         collectionData = [
-            FunctionCollectionData(image: UIImage(named: "button00ElementMenuTransfer") ?? UIImage(), title: "Transfer"),
-            FunctionCollectionData(image: UIImage(named: "button00ElementMenuPayment") ?? UIImage(), title: "Payment"),
-            FunctionCollectionData(image: UIImage(named: "button00ElementMenuUtility") ?? UIImage(), title: "Utility"),
-            FunctionCollectionData(image: UIImage(named: "button01Scan") ?? UIImage(), title: "QR pay scan"),
-            FunctionCollectionData(image: UIImage(named: "button00ElementMenuQRcode") ?? UIImage(), title: "My QR code"),
-            FunctionCollectionData(image: UIImage(named: "button00ElementMenuTopUp") ?? UIImage(), title: "Top up")
+            FunctionCollectionData(image: UIImage(named: "button00ElementMenuTransfer"), title: "Transfer"),
+            FunctionCollectionData(image: UIImage(named: "button00ElementMenuPayment"), title: "Payment"),
+            FunctionCollectionData(image: UIImage(named: "button00ElementMenuUtility"), title: "Utility"),
+            FunctionCollectionData(image: UIImage(named: "button01Scan"), title: "QR pay scan"),
+            FunctionCollectionData(image: UIImage(named: "button00ElementMenuQRcode"), title: "My QR code"),
+            FunctionCollectionData(image: UIImage(named: "button00ElementMenuTopUp"), title: "Top up")
         ]
         self.collectionView.delegate = self
         self.collectionView.dataSource = self

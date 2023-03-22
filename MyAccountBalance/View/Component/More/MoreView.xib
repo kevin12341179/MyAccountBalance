@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -49,14 +48,13 @@
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mN-H3-oVn">
                                     <rect key="frame" x="0.0" y="0.0" width="63" height="24"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="plain"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                     <connections>
                                         <action selector="moreButtonClick:" destination="-1" eventType="touchUpInside" id="H0p-pj-XIX"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="Ejq-Xh-Jz1" secondAttribute="bottom" id="8Mg-eG-1LA"/>
                                 <constraint firstAttribute="bottom" secondItem="iPs-4U-fwK" secondAttribute="bottom" id="C1Z-5H-N0E"/>
@@ -74,7 +72,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="bNt-16-uva" secondAttribute="trailing" constant="16" id="6Xk-Nd-gd9"/>
                         <constraint firstAttribute="height" constant="48" id="CYZ-dj-0kb"/>
@@ -85,9 +83,9 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="uZe-4o-eNH">
-                    <rect key="frame" x="0.0" y="48" width="393" height="88"/>
+                    <rect key="frame" x="24" y="52" width="369" height="80"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="atd-hE-Oil">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="atd-hE-Oil">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -117,7 +115,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="YeR-cr-wTo" firstAttribute="leading" secondItem="Fkr-PQ-HEL" secondAttribute="leading" constant="36" id="ATB-qr-v8E"/>
                         <constraint firstItem="f0m-eq-nXZ" firstAttribute="centerX" secondItem="YeR-cr-wTo" secondAttribute="centerX" id="I6h-ng-TzN"/>
@@ -135,15 +133,15 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Fkr-PQ-HEL" secondAttribute="trailing" id="1k0-B1-J9I"/>
-                <constraint firstItem="uZe-4o-eNH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7Rf-y4-J4P"/>
+                <constraint firstItem="uZe-4o-eNH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="7Rf-y4-J4P"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uZe-4o-eNH" secondAttribute="trailing" id="O1C-LN-yao"/>
                 <constraint firstItem="Fkr-PQ-HEL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QqX-kA-ZcP"/>
-                <constraint firstItem="uZe-4o-eNH" firstAttribute="top" secondItem="1EY-ET-XUX" secondAttribute="bottom" id="T7Y-4Y-YFs"/>
+                <constraint firstItem="uZe-4o-eNH" firstAttribute="top" secondItem="1EY-ET-XUX" secondAttribute="bottom" constant="4" id="T7Y-4Y-YFs"/>
                 <constraint firstItem="1EY-ET-XUX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="TBl-YT-Ecx"/>
                 <constraint firstItem="1EY-ET-XUX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="WE8-AI-trK"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="1EY-ET-XUX" secondAttribute="trailing" id="Y6t-2a-Gpb"/>
                 <constraint firstItem="Fkr-PQ-HEL" firstAttribute="top" secondItem="1EY-ET-XUX" secondAttribute="bottom" id="fuh-S6-BmC"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uZe-4o-eNH" secondAttribute="bottom" id="fum-qN-yI4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="uZe-4o-eNH" secondAttribute="bottom" constant="4" id="fum-qN-yI4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Fkr-PQ-HEL" secondAttribute="bottom" id="lXX-Gk-Kny"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -153,8 +151,5 @@
     <resources>
         <image name="button00ElementScrollEmpty" width="56" height="56"/>
         <image name="iconArrow01Next" width="24" height="24"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

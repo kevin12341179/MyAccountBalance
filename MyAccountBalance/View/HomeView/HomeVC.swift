@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var khrLabel: UILabel!
     @IBOutlet weak var usdAnitmationView: UIView!
     @IBOutlet weak var khrAnitmationView: UIView!
+    @IBOutlet weak var moreView: MoreView!
     
     // Base
     var viewModel: HomeVMInterFace = HomeVM()
@@ -53,6 +54,7 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         bindViewModel()
         viewModel.getEmptyNotificationList()
+        viewModel.getEmptyFavoriteList()
     }
     
     func bindViewModel(){
@@ -75,12 +77,21 @@ class HomeVC: UIViewController {
                 self?.refreshControl.endRefreshing()
             }
             .store(in: &cancellable)
+        
+        viewModel.favoriteListListPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] favoriteList in
+                self?.moreView.setFavorite(data: favoriteList)
+            }
+            .store(in: &cancellable)
     }
     
     @objc func onRefresh() {
-        viewModel.getNotificationList()
         usdAnitmationView.startCustomAnitmation()
         khrAnitmationView.startCustomAnitmation()
+        
+        viewModel.getNotificationList()
+        viewModel.getFavoriteList()
     }
     
     @IBAction func messageButtonClick(_ sender: Any) {

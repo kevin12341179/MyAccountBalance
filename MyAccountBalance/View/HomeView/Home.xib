@@ -15,6 +15,7 @@
                 <outlet property="khrAnitmationView" destination="XCT-de-72r" id="FZZ-yJ-kTa"/>
                 <outlet property="khrLabel" destination="MTw-vD-tqe" id="fjT-y5-vJJ"/>
                 <outlet property="messageButton" destination="nQg-al-oXA" id="ERG-Ci-wtu"/>
+                <outlet property="moreView" destination="hb6-7J-oGN" id="Y7n-xd-NQE"/>
                 <outlet property="scrollView" destination="Xdt-kI-mvG" id="51x-u1-n45"/>
                 <outlet property="usdAnitmationView" destination="MIY-1i-3zN" id="Ahz-fz-K18"/>
                 <outlet property="usdLabel" destination="Dkt-qN-ApJ" id="0IB-jX-xdd"/>
@@ -201,14 +202,14 @@
                                         <constraint firstAttribute="height" constant="192" id="0Lc-cc-jwd"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLb-jo-v3x">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dLb-jo-v3x" userLabel="Space">
                                     <rect key="frame" x="0.0" y="416" width="414" height="8"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="8" id="Uqw-HX-oII"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb6-7J-oGN">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hb6-7J-oGN" customClass="MoreView" customModule="MyAccountBalance" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="424" width="414" height="136"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>

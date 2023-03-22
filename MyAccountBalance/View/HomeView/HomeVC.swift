@@ -32,14 +32,11 @@ class HomeVC: UIViewController {
     // Base
     var viewModel: HomeVMInterFace = HomeVM()
     var cancellable = Set<AnyCancellable>()
-    
     var isSecurity = false
     var usdString = ""
     var khrString = ""
-    
     // Pull Refresh
     var refreshControl: UIRefreshControl = UIRefreshControl()
-    
     //Data
     var messagesList: [Notification] = []
     
@@ -51,16 +48,19 @@ class HomeVC: UIViewController {
         scrollView.refreshControl?.addTarget(self, action:
                                                 #selector(onRefresh),
                                              for: .valueChanged)
+        self.usdAnitmationView.isHidden = false
+        self.khrAnitmationView.isHidden = false
+        bindViewModel()
+        viewModel.getAllData(type: .First)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
         DispatchQueue.main.async {
             self.usdAnitmationView.startCustomAnitmation()
             self.khrAnitmationView.startCustomAnitmation()
         }
-        bindViewModel()
-        viewModel.getAllData(type: .First)
     }
 
     func bindViewModel(){
@@ -125,6 +125,11 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func messageButtonClick(_ sender: Any) {
+        if let vc =  UIStoryboard(name: "MessageView", bundle: nil).instantiateInitialViewController() as? MessageView {
+            let _ = vc
+            vc.setMessageData(message: messagesList)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @IBAction func eyesButtonClick(_ sender: UIButton) {

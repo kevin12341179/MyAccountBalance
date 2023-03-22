@@ -20,8 +20,6 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        
         setCurrentView(model: PageType.Home)
     }
     

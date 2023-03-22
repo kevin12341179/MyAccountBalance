@@ -35,6 +35,10 @@
 		85BA32C029C73986001F87FC /* APIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BF29C73986001F87FC /* APIRepository.swift */; };
 		85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32C229C751E7001F87FC /* APIResponse.swift */; };
 		85BCD2D429CB0C3300FD7FD6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD2D329CB0C3300FD7FD6 /* String.swift */; };
+		85BCD2DB29CB2D4500FD7FD6 /* MessageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BCD2DA29CB2D4500FD7FD6 /* MessageView.storyboard */; };
+		85BCD2DD29CB2D9000FD7FD6 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD2DC29CB2D9000FD7FD6 /* MessageView.swift */; };
+		85BCD2E029CB2E4A00FD7FD6 /* MessageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD2DF29CB2E4A00FD7FD6 /* MessageViewCell.swift */; };
+		85BCD3D029CB467900FD7FD6 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD3CF29CB467900FD7FD6 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		85BA32BF29C73986001F87FC /* APIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepository.swift; sourceTree = "<group>"; };
 		85BA32C229C751E7001F87FC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		85BCD2D329CB0C3300FD7FD6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		85BCD2DA29CB2D4500FD7FD6 /* MessageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageView.storyboard; sourceTree = "<group>"; };
+		85BCD2DC29CB2D9000FD7FD6 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		85BCD2DF29CB2E4A00FD7FD6 /* MessageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewCell.swift; sourceTree = "<group>"; };
+		85BCD3CF29CB467900FD7FD6 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,7 @@
 		7133B47329C7F61F00612010 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				85BCD2D929CB2D2E00FD7FD6 /* Message */,
 				719B2C6E29C986510022CAE5 /* Component */,
 				7133B47429C7F62C00612010 /* HomeView */,
 			);
@@ -198,6 +207,7 @@
 				85BA32B829C70D7F001F87FC /* View.swift */,
 				85484C1B29C9DA4400FCE12B /* NibLoadble.swift */,
 				85BCD2D329CB0C3300FD7FD6 /* String.swift */,
+				85BCD3CF29CB467900FD7FD6 /* NavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -227,6 +237,24 @@
 				85BA32BF29C73986001F87FC /* APIRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		85BCD2D929CB2D2E00FD7FD6 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				85BCD2DE29CB2E2500FD7FD6 /* MessageViewCell */,
+				85BCD2DA29CB2D4500FD7FD6 /* MessageView.storyboard */,
+				85BCD2DC29CB2D9000FD7FD6 /* MessageView.swift */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		85BCD2DE29CB2E2500FD7FD6 /* MessageViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				85BCD2DF29CB2E4A00FD7FD6 /* MessageViewCell.swift */,
+			);
+			path = MessageViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,6 +322,7 @@
 				7133B37E29C6B7EC00612010 /* LaunchScreen.storyboard in Resources */,
 				852C34A029CAAB94004146C9 /* FavoriteCell.xib in Resources */,
 				712847E329C988BB000B73C7 /* ShowMessageView.xib in Resources */,
+				85BCD2DB29CB2D4500FD7FD6 /* MessageView.storyboard in Resources */,
 				7133B37B29C6B7EC00612010 /* Assets.xcassets in Resources */,
 				7133B47629C7F75A00612010 /* Main.storyboard in Resources */,
 			);
@@ -310,11 +339,14 @@
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
 				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
 				85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */,
+				85BCD2DD29CB2D9000FD7FD6 /* MessageView.swift in Sources */,
 				719B2C7029C986730022CAE5 /* ShowMessageView.swift in Sources */,
+				85BCD2E029CB2E4A00FD7FD6 /* MessageViewCell.swift in Sources */,
 				7133B47829C7F78100612010 /* MainVC.swift in Sources */,
 				7133B37429C6B7E900612010 /* SceneDelegate.swift in Sources */,
 				85BA32B729C6FCA2001F87FC /* Color.swift in Sources */,
 				85484C1C29C9DA4400FCE12B /* NibLoadble.swift in Sources */,
+				85BCD3D029CB467900FD7FD6 /* NavigationController.swift in Sources */,
 				7133B47A29C7F79100612010 /* MainVM.swift in Sources */,
 				85BA31C629C6EB6E001F87FC /* HomeVM.swift in Sources */,
 				85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */,

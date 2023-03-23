@@ -54,42 +54,29 @@ class HomeVM: HomeVMInterFace {
     }
     
     func getAllData(type: NowType){
-        _getNotificationList(type: type)
+        Publishers.CombineLatest4(_getNotificationList(type: type), _getAllUSDMoney(type: type), _getAllKHRMoney(type: type), _getFavoriteList(type: type))
             .delay(for: 1, scheduler: RunLoop.main)
-            .flatMap { _ -> AnyPublisher<Bool, Error> in
-                return self._getAllUSDMoney(type: type)
-            }
-            .flatMap { _ -> AnyPublisher<Bool, Error> in
-                return self._getAllKHRMoney(type: type)
-            }
-            .flatMap { _ -> AnyPublisher<Bool, Error> in
-                return self._getFavoriteList(type: type)
-            }
-            .sink(receiveCompletion: { [weak self] completion in
-                guard let `self` = self else {return}
-                switch completion {
-                case .finished:
-                    break
-                case .failure(let error):
-                    self._errorMessage = error.localizedDescription
-                    self._refreshEnd = true
-                }
+            .sink(receiveCompletion: { _ in
             }, receiveValue: { _ in
                 self._refreshEnd = true
             })
             .store(in: &cancellable)
     }
     
-    func _getNotificationList(type: NowType) -> AnyPublisher<Bool, Error> {
+    func _getNotificationList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
         (type == .First ? apiRepository.getEmptyNotificationList() : apiRepository.getNotificationList())
             .allSatisfy({ data in
                 self._messagesList = data.messages ?? []
                 return true
             })
-            .eraseToAnyPublisher()
+            .catch ({ error in
+                self._errorMessage = error.localizedDescription
+                return Just(false).setFailureType(to: ErrorType.self)
+            })
+                .eraseToAnyPublisher()
     }
     
-    func _getAllUSDMoney(type: NowType) -> AnyPublisher<Bool, Error> {
+    func _getAllUSDMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
         return (type == .First ? Publishers.CombineLatest3(apiRepository.getFirstUSDSaving(), apiRepository.getFirstUSDFixed(), apiRepository.getFirstUSDDigital()) : Publishers.CombineLatest3(apiRepository.getPullUSDSaving(), apiRepository.getPullUSDFixed(), apiRepository.getPullUSDDigital()))
             .allSatisfy {(savingsList, fixedDepositList, digitalList) in
                 let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
@@ -97,10 +84,14 @@ class HomeVM: HomeVMInterFace {
                 
                 return true
             }
-            .eraseToAnyPublisher()
+            .catch ({ error in
+                self._errorMessage = error.localizedDescription
+                return Just(false).setFailureType(to: ErrorType.self)
+            })
+                .eraseToAnyPublisher()
     }
     
-    func _getAllKHRMoney(type: NowType) -> AnyPublisher<Bool, Error> {
+    func _getAllKHRMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
         return (type == .First ? Publishers.CombineLatest3(apiRepository.getFirstKHRSaving(), apiRepository.getFirstKHRFixed(), apiRepository.getFirstKHRDigital()) : Publishers.CombineLatest3(apiRepository.getPullKHRSaving(), apiRepository.getPullKHRFixed(), apiRepository.getPullKHRDigital()))
             .allSatisfy {(savingsList, fixedDepositList, digitalList) in
                 let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
@@ -108,15 +99,23 @@ class HomeVM: HomeVMInterFace {
                 
                 return true
             }
-            .eraseToAnyPublisher()
+            .catch ({ error in
+                self._errorMessage = error.localizedDescription
+                return Just(false).setFailureType(to: ErrorType.self)
+            })
+                .eraseToAnyPublisher()
     }
     
-    func _getFavoriteList(type: NowType) -> AnyPublisher<Bool, Error> {
+    func _getFavoriteList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
         (type == .First ? apiRepository.getEmptyFavoriteList() : apiRepository.getFavoriteList())
-            .allSatisfy({ data in
-                self._favoriteListList = data.favoriteList ?? []
+            .allSatisfy({ favoriteList in
+                self._favoriteListList = favoriteList.favoriteList ?? []
                 return true
             })
-            .eraseToAnyPublisher()
+            .catch ({ error in
+                self._errorMessage = error.localizedDescription
+                return Just(false).setFailureType(to: ErrorType.self)
+            })
+                .eraseToAnyPublisher()
     }
 }

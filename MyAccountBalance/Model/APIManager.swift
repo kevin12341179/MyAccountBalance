@@ -10,6 +10,7 @@ import Combine
 
 enum ErrorType: Error{
     case UrlError
+    case ApiError
 }
 
 class APIManager {

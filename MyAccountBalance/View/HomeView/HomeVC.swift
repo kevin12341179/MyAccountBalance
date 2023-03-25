@@ -28,6 +28,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var usdAnitmationView: UIView!
     @IBOutlet weak var khrAnitmationView: UIView!
     @IBOutlet weak var moreView: MoreView!
+    @IBOutlet weak var bannerView: BannerView!
     
     // Base
     var viewModel: HomeVMInterFace = HomeVM()
@@ -38,7 +39,7 @@ class HomeVC: UIViewController {
     // Pull Refresh
     var refreshControl: UIRefreshControl = UIRefreshControl()
     //Data
-    var messagesList: [Notification] = []
+    var messagesList: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,10 +111,17 @@ class HomeVC: UIViewController {
             }
             .store(in: &cancellable)
         
-        viewModel.favoriteListListPublisher
+        viewModel.favoriteListPublisher
             .receive(on: DispatchQueue.main)
             .sink {[weak self] favoriteList in
                 self?.moreView.setFavorite(data: favoriteList)
+            }
+            .store(in: &cancellable)
+        
+        viewModel.bannerListPublisher
+            .receive(on: DispatchQueue.main)
+            .sink {[weak self] bannerList in
+                self?.bannerView.setBannerData(bannerData: bannerList)
             }
             .store(in: &cancellable)
     }
@@ -127,7 +135,7 @@ class HomeVC: UIViewController {
     @IBAction func messageButtonClick(_ sender: Any) {
         if let vc =  UIStoryboard(name: "MessageView", bundle: nil).instantiateInitialViewController() as? MessageView {
             let _ = vc
-            vc.setMessageData(message: messagesList)
+            vc.setMessageData(messages: messagesList)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

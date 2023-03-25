@@ -9,7 +9,7 @@ import UIKit
 
 
 class MessageView: UITableViewController {
-    var message: [Notification] = []
+    var messages: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class MessageView: UITableViewController {
         self.navigationController?.setLeftBackButton()
     }
     
-    func setMessageData(message: [Notification]){
-        self.message = message
+    func setMessageData(messages: [Message]){
+        self.messages = messages
     }
     
     // MARK: - Table view data source
@@ -38,12 +38,12 @@ class MessageView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return message.count
+        return messages.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MessageViewCell{
-            cell.setCellData(data: message[indexPath.row])
+            cell.setCellData(data: messages[indexPath.row])
             return cell
         }
         

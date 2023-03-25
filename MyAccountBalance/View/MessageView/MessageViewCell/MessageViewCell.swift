@@ -14,7 +14,7 @@ class MessageViewCell: UITableViewCell {
     @IBOutlet weak var updateDateTime: UILabel!
     @IBOutlet weak var message: UILabel!
     
-    func setCellData(data: Notification){
+    func setCellData(data: Message){
         statusView.isHidden = !data.status
         title.text = data.title
         updateDateTime.text = data.updateDateTime

@@ -10,8 +10,8 @@ import Combine
 
 protocol APIRepositoryInterFace {
     // Notification
-    func getEmptyNotificationList() -> AnyPublisher<Message, Error>
-    func getNotificationList() -> AnyPublisher<Message, Error>
+    func getEmptyNotificationList() -> AnyPublisher<Messages, Error>
+    func getNotificationList() -> AnyPublisher<Messages, Error>
     // Amount
     func getFirstUSDSaving() -> AnyPublisher<SavingsList, Error>
     func getFirstUSDFixed() -> AnyPublisher<FixedDepositList, Error>
@@ -25,19 +25,21 @@ protocol APIRepositoryInterFace {
     func getPullKHRSaving() -> AnyPublisher<SavingsList, Error>
     func getPullKHRFixed() -> AnyPublisher<FixedDepositList, Error>
     func getPullKHRDigital() -> AnyPublisher<DigitalList, Error>
-    //Favorite
+    // Favorite
     func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error>
     func getFavoriteList() -> AnyPublisher<FavoriteList, Error>
+    // Banner
+    func getBannerList() -> AnyPublisher<BannerList, Error>
 }
 
 class APIRepository: APIRepositoryInterFace{
     static let shared = APIRepository()
     
-    func getEmptyNotificationList() -> AnyPublisher<Message, Error> {
+    func getEmptyNotificationList() -> AnyPublisher<Messages, Error> {
         return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyNotificationList)
     }
     
-    func getNotificationList() -> AnyPublisher<Message, Error> {
+    func getNotificationList() -> AnyPublisher<Messages, Error> {
         return APIManager.shared.requestAPI(urlstring: APIInfo.getNotificationList)
     }
     
@@ -96,5 +98,9 @@ class APIRepository: APIRepositoryInterFace{
     
     func getFavoriteList() -> AnyPublisher<FavoriteList, Error> {
         return APIManager.shared.requestAPI(urlstring: APIInfo.getFavoriteList)
+    }
+    
+    func getBannerList() -> AnyPublisher<BannerList, Error> {
+        return APIManager.shared.requestAPI(urlstring: APIInfo.getBannerList)
     }
 }

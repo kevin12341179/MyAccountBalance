@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="MyAccountBalance" customModuleProvider="target">
             <connections>
+                <outlet property="bannerView" destination="hgC-5h-aYt" id="exI-DW-el1"/>
                 <outlet property="eyesButton" destination="GVt-7V-hZf" id="N3r-GH-u5i"/>
                 <outlet property="khrAnitmationView" destination="XCT-de-72r" id="FZZ-yJ-kTa"/>
                 <outlet property="khrLabel" destination="MTw-vD-tqe" id="fjT-y5-vJJ"/>
@@ -31,7 +32,7 @@
                     <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="BcU-LK-Oq6">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RK8-za-PCd" userLabel="TopView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -214,6 +215,20 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="136" id="c32-B1-Vt7"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tob-YO-lis" userLabel="Space">
+                                    <rect key="frame" x="0.0" y="560" width="414" height="16"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="16" id="d76-9r-tl8"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hgC-5h-aYt" customClass="BannerView" customModule="MyAccountBalance" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="576" width="414" height="116"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="116" id="XW7-cb-T5f"/>
                                     </constraints>
                                 </view>
                             </subviews>

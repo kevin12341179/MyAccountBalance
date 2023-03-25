@@ -34,7 +34,7 @@
 		85BA32B929C70D7F001F87FC /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32B829C70D7F001F87FC /* View.swift */; };
 		85BA32BC29C71CA9001F87FC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BB29C71CA9001F87FC /* APIManager.swift */; };
 		85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BD29C71E94001F87FC /* APIInfo.swift */; };
-		85BA32C029C73986001F87FC /* APIRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BF29C73986001F87FC /* APIRepository.swift */; };
+		85BA32C029C73986001F87FC /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32BF29C73986001F87FC /* FavoriteRepository.swift */; };
 		85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA32C229C751E7001F87FC /* APIResponse.swift */; };
 		85BCD2D429CB0C3300FD7FD6 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD2D329CB0C3300FD7FD6 /* String.swift */; };
 		85BCD2DB29CB2D4500FD7FD6 /* MessageView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85BCD2DA29CB2D4500FD7FD6 /* MessageView.storyboard */; };
@@ -43,6 +43,13 @@
 		85BCD3D029CB467900FD7FD6 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCD3CF29CB467900FD7FD6 /* NavigationController.swift */; };
 		85E928CB29CED67D00D9B6AE /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928CA29CED67D00D9B6AE /* Image.swift */; };
 		85E928CD29CEE9FF00D9B6AE /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928CC29CEE9FF00D9B6AE /* ScrollView.swift */; };
+		85E928CF29CEF70C00D9B6AE /* NotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928CE29CEF70C00D9B6AE /* NotificationRepository.swift */; };
+		85E928D129CEF76A00D9B6AE /* AmountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928D029CEF76A00D9B6AE /* AmountRepository.swift */; };
+		85E928D329CEF86100D9B6AE /* BannerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928D229CEF86100D9B6AE /* BannerRepository.swift */; };
+		85E928D529CEFAA100D9B6AE /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928D429CEFAA100D9B6AE /* Messages.swift */; };
+		85E928D729CEFAC500D9B6AE /* Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928D629CEFAC500D9B6AE /* Amount.swift */; };
+		85E928D929CEFAEF00D9B6AE /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928D829CEFAEF00D9B6AE /* Favorite.swift */; };
+		85E928DB29CEFB0C00D9B6AE /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E928DA29CEFB0C00D9B6AE /* Banner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,7 +82,7 @@
 		85BA32B829C70D7F001F87FC /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		85BA32BB29C71CA9001F87FC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		85BA32BD29C71E94001F87FC /* APIInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIInfo.swift; sourceTree = "<group>"; };
-		85BA32BF29C73986001F87FC /* APIRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRepository.swift; sourceTree = "<group>"; };
+		85BA32BF29C73986001F87FC /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		85BA32C229C751E7001F87FC /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		85BCD2D329CB0C3300FD7FD6 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		85BCD2DA29CB2D4500FD7FD6 /* MessageView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MessageView.storyboard; sourceTree = "<group>"; };
@@ -84,6 +91,13 @@
 		85BCD3CF29CB467900FD7FD6 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		85E928CA29CED67D00D9B6AE /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		85E928CC29CEE9FF00D9B6AE /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
+		85E928CE29CEF70C00D9B6AE /* NotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationRepository.swift; sourceTree = "<group>"; };
+		85E928D029CEF76A00D9B6AE /* AmountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountRepository.swift; sourceTree = "<group>"; };
+		85E928D229CEF86100D9B6AE /* BannerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepository.swift; sourceTree = "<group>"; };
+		85E928D429CEFAA100D9B6AE /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		85E928D629CEFAC500D9B6AE /* Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Amount.swift; sourceTree = "<group>"; };
+		85E928D829CEFAEF00D9B6AE /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		85E928DA29CEFB0C00D9B6AE /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +261,10 @@
 			isa = PBXGroup;
 			children = (
 				85BA32C229C751E7001F87FC /* APIResponse.swift */,
+				85E928D429CEFAA100D9B6AE /* Messages.swift */,
+				85E928D629CEFAC500D9B6AE /* Amount.swift */,
+				85E928D829CEFAEF00D9B6AE /* Favorite.swift */,
+				85E928DA29CEFB0C00D9B6AE /* Banner.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -254,7 +272,10 @@
 		85BA32C429C75228001F87FC /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				85BA32BF29C73986001F87FC /* APIRepository.swift */,
+				85BA32BF29C73986001F87FC /* FavoriteRepository.swift */,
+				85E928CE29CEF70C00D9B6AE /* NotificationRepository.swift */,
+				85E928D029CEF76A00D9B6AE /* AmountRepository.swift */,
+				85E928D229CEF86100D9B6AE /* BannerRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -356,7 +377,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85E928CF29CEF70C00D9B6AE /* NotificationRepository.swift in Sources */,
 				85BCD2D429CB0C3300FD7FD6 /* String.swift in Sources */,
+				85E928D129CEF76A00D9B6AE /* AmountRepository.swift in Sources */,
+				85E928D329CEF86100D9B6AE /* BannerRepository.swift in Sources */,
+				85E928D529CEFAA100D9B6AE /* Messages.swift in Sources */,
+				85E928D729CEFAC500D9B6AE /* Amount.swift in Sources */,
 				7133B37229C6B7E900612010 /* AppDelegate.swift in Sources */,
 				85BA32B929C70D7F001F87FC /* View.swift in Sources */,
 				85BA32C329C751E7001F87FC /* APIResponse.swift in Sources */,
@@ -370,6 +396,7 @@
 				85BCD3D029CB467900FD7FD6 /* NavigationController.swift in Sources */,
 				7133B47A29C7F79100612010 /* MainVM.swift in Sources */,
 				8573B2A929CEA4E6006E5879 /* BannerView.swift in Sources */,
+				85E928D929CEFAEF00D9B6AE /* Favorite.swift in Sources */,
 				85BA31C629C6EB6E001F87FC /* HomeVM.swift in Sources */,
 				85BA32BE29C71E94001F87FC /* APIInfo.swift in Sources */,
 				85484C1529C9D39300FCE12B /* FunctionCollectionView.swift in Sources */,
@@ -378,7 +405,8 @@
 				85484C1A29C9D64B00FCE12B /* FunctionCollectionViewCell.swift in Sources */,
 				852C34A429CAABD8004146C9 /* FavoriteCell.swift in Sources */,
 				85BA32BC29C71CA9001F87FC /* APIManager.swift in Sources */,
-				85BA32C029C73986001F87FC /* APIRepository.swift in Sources */,
+				85BA32C029C73986001F87FC /* FavoriteRepository.swift in Sources */,
+				85E928DB29CEFB0C00D9B6AE /* Banner.swift in Sources */,
 				85E928CD29CEE9FF00D9B6AE /* ScrollView.swift in Sources */,
 				85E928CB29CED67D00D9B6AE /* Image.swift in Sources */,
 			);

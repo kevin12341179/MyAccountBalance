@@ -1,17 +1,14 @@
 //
-//  APIRepository.swift
+//  AmountRepository.swift
 //  MyAccountBalance
 //
-//  Created by YU TSEN LIN on 2023/3/19.
+//  Created by YU TSEN LIN on 2023/3/25.
 //
 
 import Foundation
 import Combine
 
-protocol APIRepositoryInterFace {
-    // Notification
-    func getEmptyNotificationList() -> AnyPublisher<Messages, Error>
-    func getNotificationList() -> AnyPublisher<Messages, Error>
+protocol AmountRepositoryInterFace {
     // Amount
     func getFirstUSDSaving() -> AnyPublisher<SavingsList, Error>
     func getFirstUSDFixed() -> AnyPublisher<FixedDepositList, Error>
@@ -25,23 +22,10 @@ protocol APIRepositoryInterFace {
     func getPullKHRSaving() -> AnyPublisher<SavingsList, Error>
     func getPullKHRFixed() -> AnyPublisher<FixedDepositList, Error>
     func getPullKHRDigital() -> AnyPublisher<DigitalList, Error>
-    // Favorite
-    func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error>
-    func getFavoriteList() -> AnyPublisher<FavoriteList, Error>
-    // Banner
-    func getBannerList() -> AnyPublisher<BannerList, Error>
 }
 
-class APIRepository: APIRepositoryInterFace{
-    static let shared = APIRepository()
-    
-    func getEmptyNotificationList() -> AnyPublisher<Messages, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyNotificationList)
-    }
-    
-    func getNotificationList() -> AnyPublisher<Messages, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getNotificationList)
-    }
+class AmountRepository: AmountRepositoryInterFace{
+    static let shared = AmountRepository()
     
     func getFirstUSDSaving() -> AnyPublisher<SavingsList, Error> {
         return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstUSDSaving)
@@ -89,18 +73,5 @@ class APIRepository: APIRepositoryInterFace{
     
     func getPullKHRDigital() -> AnyPublisher<DigitalList, Error>{
         return APIManager.shared.requestAPI(urlstring: APIInfo.getPullKHRDigital)
-    }
-    
-
-    func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyFavoriteList)
-    }
-    
-    func getFavoriteList() -> AnyPublisher<FavoriteList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFavoriteList)
-    }
-    
-    func getBannerList() -> AnyPublisher<BannerList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getBannerList)
     }
 }

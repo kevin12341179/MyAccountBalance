@@ -52,11 +52,22 @@ class HomeVM: HomeVMInterFace {
     @Published private var _bannerList: [Banner] = []
     var bannerListPublisher: Published<[Banner]>.Publisher { $_bannerList }
     
-    private let apiRepository: APIRepositoryInterFace
+    private let favoriteRepository: FavoriteRepositoryInterFace
+    private let notificationRepository: NotificationRepositoryInterFace
+    private let amountRepository: AmountRepositoryInterFace
+    private let bannerRepository: BannerRepositoryInterFace
     var cancellable = Set<AnyCancellable>()
     
-    init(apiRepository: APIRepositoryInterFace = APIRepository.shared) {
-        self.apiRepository = apiRepository
+    init(
+        favoriteRepository: FavoriteRepositoryInterFace = FavoriteRepository.shared,
+        notificationRepository: NotificationRepositoryInterFace = NotificationRepository.shared,
+        amountRepository: AmountRepositoryInterFace = AmountRepository.shared,
+        bannerRepository: BannerRepositoryInterFace = BannerRepository.shared)
+    {
+        self.favoriteRepository = favoriteRepository
+        self.notificationRepository = notificationRepository
+        self.amountRepository = amountRepository
+        self.bannerRepository = bannerRepository
     }
     
     func getAllData(type: NowType){
@@ -80,7 +91,7 @@ class HomeVM: HomeVMInterFace {
     }
     
     func _getBannerList() -> AnyPublisher<Bool, ErrorType> {
-        apiRepository.getBannerList()
+        bannerRepository.getBannerList()
             .allSatisfy({ data in
                 self._bannerList = data.bannerList
                 return true
@@ -93,7 +104,7 @@ class HomeVM: HomeVMInterFace {
     }
     
     func _getNotificationList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
-        (type == .First ? apiRepository.getEmptyNotificationList() : apiRepository.getNotificationList())
+        (type == .First ? notificationRepository.getEmptyNotificationList() : notificationRepository.getNotificationList())
             .allSatisfy({ data in
                 self._messagesList = data.messages ?? []
                 return true
@@ -106,7 +117,7 @@ class HomeVM: HomeVMInterFace {
     }
     
     func _getAllUSDMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
-        return (type == .First ? Publishers.CombineLatest3(apiRepository.getFirstUSDSaving(), apiRepository.getFirstUSDFixed(), apiRepository.getFirstUSDDigital()) : Publishers.CombineLatest3(apiRepository.getPullUSDSaving(), apiRepository.getPullUSDFixed(), apiRepository.getPullUSDDigital()))
+        return (type == .First ? Publishers.CombineLatest3(amountRepository.getFirstUSDSaving(), amountRepository.getFirstUSDFixed(), amountRepository.getFirstUSDDigital()) : Publishers.CombineLatest3(amountRepository.getPullUSDSaving(), amountRepository.getPullUSDFixed(), amountRepository.getPullUSDDigital()))
             .allSatisfy {(savingsList, fixedDepositList, digitalList) in
                 let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
                 self._usdPublisher = total
@@ -121,7 +132,7 @@ class HomeVM: HomeVMInterFace {
     }
     
     func _getAllKHRMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
-        return (type == .First ? Publishers.CombineLatest3(apiRepository.getFirstKHRSaving(), apiRepository.getFirstKHRFixed(), apiRepository.getFirstKHRDigital()) : Publishers.CombineLatest3(apiRepository.getPullKHRSaving(), apiRepository.getPullKHRFixed(), apiRepository.getPullKHRDigital()))
+        return (type == .First ? Publishers.CombineLatest3(amountRepository.getFirstKHRSaving(), amountRepository.getFirstKHRFixed(), amountRepository.getFirstKHRDigital()) : Publishers.CombineLatest3(amountRepository.getPullKHRSaving(), amountRepository.getPullKHRFixed(), amountRepository.getPullKHRDigital()))
             .allSatisfy {(savingsList, fixedDepositList, digitalList) in
                 let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
                 self._khrPublisher = total
@@ -136,7 +147,7 @@ class HomeVM: HomeVMInterFace {
     }
     
     func _getFavoriteList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
-        (type == .First ? apiRepository.getEmptyFavoriteList() : apiRepository.getFavoriteList())
+        (type == .First ? favoriteRepository.getEmptyFavoriteList() : favoriteRepository.getFavoriteList())
             .allSatisfy({ favoriteList in
                 self._favoriteList = favoriteList.favoriteList ?? []
                 return true

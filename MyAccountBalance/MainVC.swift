@@ -7,12 +7,16 @@
 
 import UIKit
 
-enum PageType {
-    case Home
+enum PageType: Int{
+    case Home = 0
+    case Account = 1
+    case Location = 2
+    case Service = 3
 }
 
 class MainVC: UIViewController {
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var tabarView: UIView!
     // Page Controller
     private var selectMode: PageType!
     private var subVC: UIViewController?
@@ -20,6 +24,10 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabarView.layer.shadowColor = UIColor.black.cgColor
+        tabarView.layer.shadowOpacity = 0.12
+        tabarView.layer.shadowOffset =  CGSize(width: 4, height: 0)
+        tabarView.layer.shadowRadius = 4
         setCurrentView(model: PageType.Home)
     }
     
@@ -50,4 +58,9 @@ class MainVC: UIViewController {
             self.subVC?.didMove(toParent: self)
         }
     }
+    
+    @IBAction func tabarClick(_ sender: UIButton) {
+        self.setCurrentView(model: PageType.init(rawValue: sender.tag) ?? .Home)
+    }
+    
 }

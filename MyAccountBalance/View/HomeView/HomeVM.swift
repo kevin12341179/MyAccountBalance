@@ -96,9 +96,9 @@ class HomeVM: HomeVMInterFace {
                 self._bannerList = data.bannerList
                 return true
             })
-            .catch ({ error in
+            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self)
+                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
             })
                 .eraseToAnyPublisher()
     }
@@ -109,9 +109,9 @@ class HomeVM: HomeVMInterFace {
                 self._messagesList = data.messages ?? []
                 return true
             })
-            .catch ({ error in
+            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self)
+                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
             })
                 .eraseToAnyPublisher()
     }
@@ -124,9 +124,9 @@ class HomeVM: HomeVMInterFace {
                 
                 return true
             }
-            .catch ({ error in
+            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self)
+                return Just(false).setFailureType(to: ErrorType.self).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
             })
                 .eraseToAnyPublisher()
     }
@@ -139,9 +139,9 @@ class HomeVM: HomeVMInterFace {
                 
                 return true
             }
-            .catch ({ error in
+            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self)
+                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
             })
                 .eraseToAnyPublisher()
     }
@@ -152,9 +152,9 @@ class HomeVM: HomeVMInterFace {
                 self._favoriteList = favoriteList.favoriteList ?? []
                 return true
             })
-            .catch ({ error in
+            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self)
+                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
             })
                 .eraseToAnyPublisher()
     }

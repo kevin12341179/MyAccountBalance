@@ -32,7 +32,9 @@ class MainVC: UIViewController {
     }
     
     func setCurrentView(model: PageType){
-        if selectMode == model { return }
+        guard selectMode != model
+        else { return }
+
         selectMode = model
         
         if self.subVC != nil {
@@ -51,12 +53,13 @@ class MainVC: UIViewController {
             break
         }
         
-        if self.subVC != nil {
-            self.subVC?.view.frame = self.contentView.bounds
-            self.addChild(self.subVC!)
-            self.contentView.addSubview(self.subVC!.view)
-            self.subVC?.didMove(toParent: self)
-        }
+        guard let subVC
+        else { return }
+        
+        subVC.view.frame = self.contentView.bounds
+        self.addChild(subVC)
+        self.contentView.addSubview(subVC.view)
+        subVC.didMove(toParent: self)
     }
     
     @IBAction func tabarClick(_ sender: UIButton) {

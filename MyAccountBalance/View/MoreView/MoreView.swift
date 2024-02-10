@@ -68,26 +68,25 @@ extension MoreView: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FavoriteCell {
-            var image: UIImage?
-            switch collectionData[indexPath.row].transType {
-            case "CUBC":
-                image = UIImage(named: "button00ElementScrollTree")
-            case "Mobile":
-                image = UIImage(named: "button00ElementScrollMobile")
-            case "PMF":
-                image = UIImage(named: "button00ElementScrollTree")
-            case "CreditCard":
-                image = UIImage(named: "button00ElementScrollCreditCard")
-            default:
-                break;
-            }
-            cell.setCellData(image: image, title: collectionData[indexPath.row].nickname)
-            
-            return cell
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FavoriteCell
+        else { return UICollectionViewCell() }
         
-        return UICollectionViewCell()
+        var image: UIImage?
+        switch collectionData[indexPath.row].transType {
+        case "CUBC":
+            image = UIImage(named: "button00ElementScrollTree")
+        case "Mobile":
+            image = UIImage(named: "button00ElementScrollMobile")
+        case "PMF":
+            image = UIImage(named: "button00ElementScrollTree")
+        case "CreditCard":
+            image = UIImage(named: "button00ElementScrollCreditCard")
+        default:
+            break;
+        }
+        cell.setCellData(image: image, title: collectionData[indexPath.row].nickname)
+        
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

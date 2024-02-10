@@ -63,13 +63,11 @@ extension FunctionCollectionView: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FunctionCollectionViewCell {
-            cell.setCellData(data: collectionData[indexPath.row])
-            
-            return cell
-        }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? FunctionCollectionViewCell
+        else { return UICollectionViewCell() }
         
-        return UICollectionViewCell()
+        cell.setCellData(data: collectionData[indexPath.row])
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

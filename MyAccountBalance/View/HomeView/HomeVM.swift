@@ -74,88 +74,76 @@ class HomeVM: HomeVMInterFace {
         Publishers.CombineLatest4(_getNotificationList(type: type), _getAllUSDMoney(type: type), _getAllKHRMoney(type: type), _getFavoriteList(type: type))
             .handleEvents(
                 receiveSubscription: { _ in
-                    if type == .After {
-                        self._getBannerList()
-                            .sink { _ in
-                            } receiveValue: { _ in
-                            }
-                            .store(in: &self.cancellable)
-                    }
+                    guard type == .After
+                    else { return }
+                    
+                    self._getBannerList()
+                        .assign(to: \._bannerList, on: self)
+                        .store(in: &self.cancellable)
                 })
             .delay(for: 1, scheduler: RunLoop.main)
             .sink(receiveCompletion: { _ in
-            }, receiveValue: { _ in
+            }, receiveValue: { (messages, usdMoney, khMoney, favroiteList) in
+                self._messagesList = messages
+                self._usdPublisher = usdMoney
+                self._khrPublisher = khMoney
+                self._favoriteList = favroiteList
                 self._refreshEnd = true
             })
             .store(in: &cancellable)
     }
     
-    func _getBannerList() -> AnyPublisher<Bool, ErrorType> {
+    func _getBannerList() -> AnyPublisher<[Banner], Never> {
         bannerRepository.getBannerList()
-            .allSatisfy({ data in
-                self._bannerList = data.bannerList
-                return true
-            })
-            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
+            .map({ $0.bannerList })
+            .catch({ error -> AnyPublisher<[Banner], Never> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
+                return Just([]).eraseToAnyPublisher()
             })
-                .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
-    func _getNotificationList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
+    func _getNotificationList(type: NowType) -> AnyPublisher<[Message], Never> {
         (type == .First ? notificationRepository.getEmptyNotificationList() : notificationRepository.getNotificationList())
-            .allSatisfy({ data in
-                self._messagesList = data.messages ?? []
-                return true
-            })
-            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
+            .map({ $0.messages ?? [] })
+            .catch ({ error -> AnyPublisher<[Message], Never> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
+                return Just([]).eraseToAnyPublisher()
             })
-                .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
-    func _getAllUSDMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
+    func _getAllUSDMoney(type: NowType) -> AnyPublisher<Double, Never> {
         return (type == .First ? Publishers.CombineLatest3(amountRepository.getFirstUSDSaving(), amountRepository.getFirstUSDFixed(), amountRepository.getFirstUSDDigital()) : Publishers.CombineLatest3(amountRepository.getPullUSDSaving(), amountRepository.getPullUSDFixed(), amountRepository.getPullUSDDigital()))
-            .allSatisfy {(savingsList, fixedDepositList, digitalList) in
-                let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
-                self._usdPublisher = total
-                
-                return true
+            .map {(savingsList, fixedDepositList, digitalList) in
+                return (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
             }
-            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
+            .catch ({ error -> AnyPublisher<Double, Never> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
+                return Just(0).eraseToAnyPublisher()
             })
-                .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
-    func _getAllKHRMoney(type: NowType) -> AnyPublisher<Bool, ErrorType> {
+    func _getAllKHRMoney(type: NowType) -> AnyPublisher<Double, Never> {
         return (type == .First ? Publishers.CombineLatest3(amountRepository.getFirstKHRSaving(), amountRepository.getFirstKHRFixed(), amountRepository.getFirstKHRDigital()) : Publishers.CombineLatest3(amountRepository.getPullKHRSaving(), amountRepository.getPullKHRFixed(), amountRepository.getPullKHRDigital()))
-            .allSatisfy {(savingsList, fixedDepositList, digitalList) in
-                let total = (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
-                self._khrPublisher = total
-                
-                return true
+            .map {(savingsList, fixedDepositList, digitalList) in
+                return (savingsList.savingsList + fixedDepositList.fixedDepositList + digitalList.digitalList).reduce(0, {$0 + $1.balance})
             }
-            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
+            .catch ({ error -> AnyPublisher<Double, Never> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
+                return Just(0).eraseToAnyPublisher()
             })
-                .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
-    func _getFavoriteList(type: NowType) -> AnyPublisher<Bool, ErrorType> {
+    func _getFavoriteList(type: NowType) -> AnyPublisher<[Favorite], Never> {
         (type == .First ? favoriteRepository.getEmptyFavoriteList() : favoriteRepository.getFavoriteList())
-            .allSatisfy({ favoriteList in
-                self._favoriteList = favoriteList.favoriteList ?? []
-                return true
-            })
-            .catch ({ error -> AnyPublisher<Bool, ErrorType> in
+            .map({ $0.favoriteList ?? [] })
+            .catch ({ error -> AnyPublisher<[Favorite], Never> in
                 self._errorMessage = error.localizedDescription
-                return Just(false).setFailureType(to: ErrorType.self).eraseToAnyPublisher()
+                return Just([]).eraseToAnyPublisher()
             })
-                .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
 }

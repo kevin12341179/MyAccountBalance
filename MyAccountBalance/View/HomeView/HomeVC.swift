@@ -63,7 +63,7 @@ class HomeVC: UIViewController {
             self.khrAnitmationView.startCustomAnitmation()
         }
     }
-
+    
     func bindViewModel(){
         viewModel.errorMessageListPublisher
             .receive(on: DispatchQueue.main)
@@ -77,11 +77,12 @@ class HomeVC: UIViewController {
         viewModel.refreshEndPublisher
             .receive(on: DispatchQueue.main)
             .sink {[weak self] close in
-                if close {
-                    self?.refreshControl.endRefreshing()
-                    self?.usdAnitmationView.isHidden = true
-                    self?.khrAnitmationView.isHidden = true
-                }
+                guard close
+                else { return }
+                
+                self?.refreshControl.endRefreshing()
+                self?.usdAnitmationView.isHidden = true
+                self?.khrAnitmationView.isHidden = true
             }
             .store(in: &cancellable)
         
@@ -89,9 +90,11 @@ class HomeVC: UIViewController {
             .receive(on: DispatchQueue.main)
             .sink {[weak self] messagesList in
                 self?.messagesList = messagesList
-                if messagesList.count > 0 {
-                    self?.messageButton.setImage(UIImage(named: "iconBell02Active"), for: .normal)
-                }
+                
+                guard messagesList.count > 0
+                else { return }
+                
+                self?.messageButton.setImage(UIImage(named: "iconBell02Active"), for: .normal)
             }
             .store(in: &cancellable)
         
@@ -133,11 +136,11 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func messageButtonClick(_ sender: Any) {
-        if let vc =  UIStoryboard(name: "MessageView", bundle: nil).instantiateInitialViewController() as? MessageView {
-            let _ = vc
-            vc.setMessageData(messages: messagesList)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let vc =  UIStoryboard(name: "MessageView", bundle: nil).instantiateInitialViewController() as? MessageView
+        else { return }
+        
+        vc.setMessageData(messages: messagesList)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func eyesButtonClick(_ sender: UIButton) {

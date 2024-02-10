@@ -42,12 +42,11 @@ class MessageView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MessageViewCell{
-            cell.setCellData(data: messages[indexPath.row])
-            return cell
-        }
-        
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? MessageViewCell
+        else { return UITableViewCell() }
+
+        cell.setCellData(data: messages[indexPath.row])
+        return cell
     }
 
     /*

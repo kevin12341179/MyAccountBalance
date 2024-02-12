@@ -18,10 +18,10 @@ class NotificationRepository: NotificationRepositoryInterFace{
     static let shared = NotificationRepository()
     
     func getEmptyNotificationList() -> AnyPublisher<Messages, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyNotificationList)
+        return APIManager.shared.request(endpoint: .getEmptyNotificationList)
     }
     
     func getNotificationList() -> AnyPublisher<Messages, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getNotificationList)
+        return APIManager.shared.request(endpoint: .getNotificationList)
     }
 }

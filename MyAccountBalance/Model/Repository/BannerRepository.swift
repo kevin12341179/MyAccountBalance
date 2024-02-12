@@ -17,6 +17,6 @@ class BannerRepository: BannerRepositoryInterFace{
     static let shared = BannerRepository()
 
     func getBannerList() -> AnyPublisher<BannerList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getBannerList)
+        return APIManager.shared.request(endpoint: .getBannerList)
     }
 }

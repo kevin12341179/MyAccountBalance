@@ -28,50 +28,50 @@ class AmountRepository: AmountRepositoryInterFace{
     static let shared = AmountRepository()
     
     func getFirstUSDSaving() -> AnyPublisher<SavingsList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstUSDSaving)
+        return APIManager.shared.request(endpoint: .getFirstUSDSaving)
     }
     
     func getFirstUSDFixed() -> AnyPublisher<FixedDepositList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstUSDFixed)
+        return APIManager.shared.request(endpoint: .getFirstUSDFixed)
     }
     
     func getFirstUSDDigital() -> AnyPublisher<DigitalList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstUSDDigital)
+        return APIManager.shared.request(endpoint: .getFirstUSDDigital)
     }
     
     func getFirstKHRSaving() -> AnyPublisher<SavingsList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstKHRSaving)
+        return APIManager.shared.request(endpoint: .getFirstKHRSaving)
     }
     
     func getFirstKHRFixed() -> AnyPublisher<FixedDepositList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstKHRFixed)
+        return APIManager.shared.request(endpoint: .getFirstKHRFixed)
     }
     
     func getFirstKHRDigital() -> AnyPublisher<DigitalList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFirstKHRDigital)
+        return APIManager.shared.request(endpoint: .getFirstKHRDigital)
     }
     
     func getPullUSDSaving() -> AnyPublisher<SavingsList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullUSDSaving)
+        return APIManager.shared.request(endpoint: .getPullUSDSaving)
     }
     
     func getPullUSDFixed() -> AnyPublisher<FixedDepositList, Error>{
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullUSDFixed)
+        return APIManager.shared.request(endpoint: .getPullUSDFixed)
     }
     
     func getPullUSDDigital() -> AnyPublisher<DigitalList, Error>{
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullUSDDigital)
+        return APIManager.shared.request(endpoint: .getPullUSDDigital)
     }
     
     func getPullKHRSaving() -> AnyPublisher<SavingsList, Error>{
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullKHRSaving)
+        return APIManager.shared.request(endpoint: .getPullKHRSaving)
     }
     
     func getPullKHRFixed() -> AnyPublisher<FixedDepositList, Error>{
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullKHRFixed)
+        return APIManager.shared.request(endpoint: .getPullKHRFixed)
     }
     
     func getPullKHRDigital() -> AnyPublisher<DigitalList, Error>{
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getPullKHRDigital)
+        return APIManager.shared.request(endpoint: .getPullKHRDigital)
     }
 }

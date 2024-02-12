@@ -18,10 +18,10 @@ class FavoriteRepository: FavoriteRepositoryInterFace{
     static let shared = FavoriteRepository()
 
     func getEmptyFavoriteList() -> AnyPublisher<FavoriteList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getEmptyFavoriteList)
+        return APIManager.shared.request(endpoint: .getEmptyFavoriteList)
     }
     
     func getFavoriteList() -> AnyPublisher<FavoriteList, Error> {
-        return APIManager.shared.requestAPI(urlstring: APIInfo.getFavoriteList)
+        return APIManager.shared.request(endpoint: .getFavoriteList)
     }
 }

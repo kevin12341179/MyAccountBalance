@@ -16,15 +16,30 @@ enum ErrorType: Error{
 class APIManager {
     static let shared = APIManager()
 
-    func requestAPI<T: Codable>(urlstring: String) -> AnyPublisher<T, Error> {
-        guard let url = URL(string: urlstring) else {
+    func request<T: Codable>(endpoint: APIEndpoint) -> AnyPublisher<T, Error> {
+        var urlString = endpoint.url
+        guard let url = URL(string: urlString)
+        else {
             return Fail(error: ErrorType.UrlError).eraseToAnyPublisher()
         }
         
-        return URLSession.shared.dataTaskPublisher(for: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = endpoint.httpMethod.rawValue
+        
+        if endpoint.httpMethod == .POST,
+           let body = endpoint.body {
+            
+            let bodyData = try? JSONSerialization.data(
+                withJSONObject: body,
+                options: []
+            )
+            request.httpBody = bodyData
+        }
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
             .map({$0.data})
             .decode(type: APIResponse.self, decoder: JSONDecoder())
-            .map({$0.result})
+            .map({ $0.result })
             .eraseToAnyPublisher()
     }
 }
